@@ -10,6 +10,7 @@
 processing library for PHP 5.3+. This package implements Alipay support for Omnipay.
 
 > Cross-border Alipay payment please use [`lokielse/omnipay-global-alipay`](https://github.com/lokielse/omnipay-global-alipay)
+
 ## Improtant
 
 This is based on Alipay api 2.0. Visit [Alipay Api](https://doc.open.alipay.com/doc2/apiList?docType=4) for help.
