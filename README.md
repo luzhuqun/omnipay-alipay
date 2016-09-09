@@ -2,7 +2,7 @@
 
 **Alipay driver for the Omnipay PHP payment processing library**
 
-[![Build Status](https://travis-ci.org/luzhuqun/omnipay-alipay.png?branch=master)](https://travis-ci.org/luzhuqun/omnipay-alipay)
+[![Build Status](https://travis-ci.org/lokielse/omnipay-alipay.png?branch=master)](https://travis-ci.org/lokielse/omnipay-alipay)
 [![Latest Stable Version](https://poser.pugx.org/luzhuqun/omnipay-alipay/version.png)](https://packagist.org/packages/luzhuqun/omnipay-alipay)
 [![Total Downloads](https://poser.pugx.org/luzhuqun/omnipay-alipay/d/total.png)](https://packagist.org/packages/luzhuqun/omnipay-alipay)
 
