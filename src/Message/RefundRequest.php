@@ -2,7 +2,7 @@
 
 namespace Omnipay\Alipay\Message;
 
-class ExpressPurchaseRequest extends BaseRequest
+class ExpressRefundRequest extends BaseRequest
 {
 
     /**
@@ -35,29 +35,27 @@ class ExpressPurchaseRequest extends BaseRequest
     protected function validateData()
     {
         parent::validateData();
-        $this->validate('subject');
-        $this->validate('total_amount');
-        $this->validate('out_trade_no');
+        $this->validate('refund_amount');
     }
 
-    public function getSubject()
+    public function getTradeNo()
     {
-        return $this->getParameter('subject');
+        return $this->getParameter('trade_no');
     }
-    public function setSubject($value)
+    public function setTradeNo($value)
     {
-        $this->setParameter('subject', $value);
-        $this->bizParas['subject'] = $value;
+        $this->setParameter('trade_no', $value);
+        $this->bizParas['trade_no'] = $value;
     }
 
-    public function getTotalAmount()
+    public function getRefundAmount()
     {
-        return $this->getParameter('total_amount');
+        return $this->getParameter('refund_amount');
     }
-    public function setTotalAmount($value)
+    public function setRefundAmount($value)
     {
-        $this->setParameter('total_amount', $value);
-        $this->bizParas['total_amount'] = $value;
+        $this->setParameter('refund_amount', $value);
+        $this->bizParas['refund_amount'] = $value;
     }
 
     public function getOutTradeNo()
@@ -70,7 +68,55 @@ class ExpressPurchaseRequest extends BaseRequest
         $this->bizParas['out_trade_no'] = $value;
     }
 
+    public function getRefundReason()
+    {
+        return $this->getParameter('refund_reason');
+    }
+    public function setRefundReason($value)
+    {
+        $this->setParameter('refund_reason', $value);
+        $this->bizParas['refund_reason'] = $value;
+    }
 
+    public function getOutRequestNo()
+    {
+        return $this->getParameter('out_request_no');
+    }
+    public function setOutRequestNo($value)
+    {
+        $this->setParameter('out_request_no', $value);
+        $this->bizParas['out_request_no'] = $value;
+    }
+
+    public function getOperatorId()
+    {
+        return $this->getParameter('operator_id');
+    }
+    public function setOperatorId($value)
+    {
+        $this->setParameter('operator_id', $value);
+        $this->bizParas['operator_id'] = $value;
+    }
+
+    public function getStoreId()
+    {
+        return $this->getParameter('store_id');
+    }
+    public function setStoreId($value)
+    {
+        $this->setParameter('store_id', $value);
+        $this->bizParas['store_id'] = $value;
+    }
+
+    public function getTerminalId()
+    {
+        return $this->getParameter('terminal_id');
+    }
+    public function setTerminalId($value)
+    {
+        $this->setParameter('terminal_id', $value);
+        $this->bizParas['terminal_id'] = $value;
+    }
     public function getBizContent()
     {
         if(!empty($this->bizParas)){

@@ -3,14 +3,14 @@
 namespace Omnipay\Alipay;
 
 /**
- * Class DualGateway
+ * Class ExpressGateway
  *
  * @package Omnipay\Alipay
  */
-class DualGateway extends SecuredGateway
+class AuthTokenGateway extends BaseAbstractGateway
 {
 
-    protected $serviceName = 'trade_create_by_buyer';
+    protected $service = 'alipay.open.auth.token.app';
 
 
     /**
@@ -20,14 +20,14 @@ class DualGateway extends SecuredGateway
      */
     public function getName()
     {
-        return 'AliPay Dual Func';
+        return 'Alipay AUTHTOKEN';
     }
 
 
     public function purchase(array $parameters = array())
     {
-        $this->setService($this->serviceName);
+        $this->setMethod($this->service);
 
-        return $this->createRequest('\Omnipay\Alipay\Message\SecuredPurchaseRequest', $parameters);
+        return $this->createRequest('\Omnipay\Alipay\Message\AuthTokenRequest', $parameters);
     }
 }

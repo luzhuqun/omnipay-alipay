@@ -10,6 +10,9 @@
 processing library for PHP 5.3+. This package implements Alipay support for Omnipay.
 
 > Cross-border Alipay payment please use [`lokielse/omnipay-global-alipay`](https://github.com/lokielse/omnipay-global-alipay)
+## Improtant
+
+This is based on Alipay api 2.0. Visit [Alipay Api](https://doc.open.alipay.com/doc2/apiList?docType=4) for help.
 
 ## Installation
 
@@ -18,7 +21,7 @@ Omnipay is installed via [Composer](http://getcomposer.org/). To install, simply
 ```json
 {
     "require": {
-        "lokielse/omnipay-alipay": "dev-master"
+        "luzhuqun/omnipay-alipay": "dev-master"
     }
 }
 ```
@@ -33,12 +36,9 @@ And run composer to update your dependencies:
 The following gateways are provided by this package:
 
 
-* Alipay_Express (Alipay Express Checkout) 支付宝即时到账接口
-* Alipay_Secured (Alipay Secured Checkout) 支付宝担保交易接口
-* Alipay_Dual (Alipay Dual Function Checkout) 支付宝双功能交易接口
-* Alipay_WapExpress (Alipay Wap Express Checkout) 支付宝WAP客户端接口
-* Alipay_MobileExpress (Alipay Mobile Express Checkout) 支付宝无线支付接口
-* Alipay_Bank (Alipay Bank Checkout) 支付宝网银快捷接口
+* Alipay_Express (Alipay faceTofacePay) 当面付（二维码支付）
+* Alipay_WapExpress (Alipay Wap Express Checkout) 手机网站支付
+
 
 ## Usage
 

@@ -14,9 +14,9 @@ abstract class BaseAbstractRequest extends AbstractRequest
     }
 
 
-    public function setKey($value)
+    public function setAppId($value)
     {
-        $this->setParameter('key', $value);
+        $this->setParameter('app_id	', $value);
     }
 
 
@@ -57,19 +57,34 @@ abstract class BaseAbstractRequest extends AbstractRequest
 
     protected function signWithMD5($query)
     {
-        return md5($query . $this->getKey());
+        return md5($query . $this->getAppId());
     }
 
 
-    public function getKey()
+    public function getAppId()
     {
-        return $this->getParameter('key');
+        return $this->getParameter('app_id	');
     }
 
 
     protected function signWithRSA($data, $privateKey)
     {
-        $privateKey = $this->prefixCertificateKeyPath($privateKey);
+        //$privateKey = $this->prefixCertificateKeyPath($privateKey);
+        $privateKey = '-----BEGIN RSA PRIVATE KEY-----
+MIICXQIBAAKBgQC7IlrEbqqy3o7i+vTF9glkKJ18uacoxxyHLWmtxU+/UxAjkez4
+AvMfCXn0IchfcFpCKiZJOe99wIg/0Bt7rm40zuonrXUrq801SJaPPQzB9h3pIC0b
++2tpVeIIDt11UYrnonfhzLC7G0X5sspDAHoWzbcr1NvW52qJdpQkumyJ5QIDAQAB
+AoGBAIs0GA8NP5+FHQdNpS1pQz0lVVmFhQo5a0hHCNjB8Puin1vGXl9zWkUZOIXZ
+Z4NPQWT8k7RfC38g7HmDph4P+Fu7KePJ83tNya+hlyyhgm5UvpmM00Vr/Z1RsLly
+1nx31P03ydaeTiDLNAV2o7D6jF1p5MTeTcf9pLsqY3IlbprVAkEA72moPqPtK2c0
+T7QjPXgyz7VuJGPXj0vX1k0OxENv2+bkg3JMko4VPPfEtBDokkYu8GTbB+wVLB2k
+81Yk6QMY4wJBAMgZdaE40n0d1FdNNWX3plE6AC6+mdDJwzWqiiW5Fe5ItFrPttgn
+rutvNQc+8fOs4JG9jRVo67pyJTzuVg8GdJcCQCOiy3s/dT7/pqayfohYyt9l9xYN
+knlu5Zqtb6RBEXZfAOab7c/mvDyN+MaAuc2ECtqXeI7OUjx10SazTN0uK9cCQARa
+mXail+HlDkPACFNpqhLGYk6iExK58SdvyIW9mz6OEm6PankVk/bHeq3nrrgQoOpK
+55D5sXdjGHBU90Zoa40CQQDpZJBj1JbOzF+joL1K5iQYo30njTiWDpYmJSWr2V/1
+Z5f9N0MsIQhEVqC3bWq21ky3gI41eeApw8Usg6boEJN3
+-----END RSA PRIVATE KEY-----';
         $res        = openssl_pkey_get_private($privateKey);
         openssl_sign($data, $sign, $res);
         openssl_free_key($res);

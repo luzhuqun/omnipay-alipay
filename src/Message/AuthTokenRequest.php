@@ -2,7 +2,7 @@
 
 namespace Omnipay\Alipay\Message;
 
-class WapExpressPurchaseRequest extends BaseRequest
+class AuthTokenRequest extends BaseRequest
 {
 
     /**
@@ -40,56 +40,44 @@ class WapExpressPurchaseRequest extends BaseRequest
     protected function validateData()
     {
         parent::validateData();
-        $this->validate('subject');
-        $this->validate('total_amount');
-        $this->validate('out_trade_no');
-        $this->validate('product_code');
+        $this->validate('grant_type');
+    
     }
 
-    public function getSubject()
+    public function getGrantType()
     {
-        return $this->getParameter('subject');
+        return $this->getParameter('grant_type');
     }
 
-    public function setSubject($value)
+    public function setGrantType($value)
     {
-        $this->setParameter('subject', $value);
-        $this->bizParas['subject'] = $value;
+        $this->setParameter('grant_type', $value);
+        $this->bizParas['grant_type'] = $value;
 
     }
 
-    public function getTotalAmount()
+    public function getCode()
     {
-        return $this->getParameter('total_amount');
+        return $this->getParameter('code');
     }
 
-    public function setTotalAmount($value)
+    public function setCode($value)
     {
-        $this->setParameter('total_amount', $value);
-        $this->bizParas['total_amount'] = $value;
+        $this->setParameter('code', $value);
+        $this->bizParas['code'] = $value;
     }
 
-    public function getOutTradeNo()
+    public function getRefreshToken()
     {
-        return $this->getParameter('out_trade_no');
+        return $this->getParameter('refresh_token');
     }
 
-    public function setOutTradeNo($value)
+    public function setRefreshToken($value)
     {
-        $this->setParameter('out_trade_no', $value);
-        $this->bizParas['out_trade_no'] = $value;
+        $this->setParameter('refresh_token', $value);
+        $this->bizParas['refresh_token'] = $value;
     }
 
-    public function getProductCode()
-    {
-        return $this->getParameter('product_code');
-    }
-
-    public function setProductCode($value)
-    {
-        $this->setParameter('product_code', $value);
-        $this->bizParas['product_code'] = $value;
-    }
 
     public function getBizContent()
     {

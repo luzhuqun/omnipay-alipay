@@ -9,20 +9,6 @@ namespace Omnipay\Alipay;
  */
 class WapExpressGateway extends BaseAbstractGateway
 {
-
-    protected $service = 'alipay.wap.create.direct.pay.by.user';
-
-
-    public function getDefaultParameters()
-    {
-        $params = parent::getDefaultParameters();
-
-        $params['signType'] = 'RSA';
-
-        return $params;
-    }
-
-
     /**
      * Get gateway display name
      *
@@ -33,23 +19,44 @@ class WapExpressGateway extends BaseAbstractGateway
         return 'Alipay Wap Express';
     }
 
-
-    public function getPrivateKey()
-    {
-        return $this->getParameter('private_key');
-    }
-
-
-    public function setPrivateKey($value)
-    {
-        $this->setParameter('private_key', $value);
-    }
-
-
     public function purchase(array $parameters = array())
     {
-        $this->setService($this->service);
+        $this->setMethod('alipay.trade.wap.pay');
 
         return $this->createRequest('\Omnipay\Alipay\Message\WapExpressPurchaseRequest', $parameters);
+    }
+    public function query(array $parameters = array())
+    {
+        $this->setMethod('alipay.trade.query');
+
+        return $this->createRequest('\Omnipay\Alipay\Message\QueryRequest', $parameters);
+    }
+
+    public function refund(array $parameters = array())
+    {
+        $this->setMethod('alipay.trade.refund');
+
+        return $this->createRequest('\Omnipay\Alipay\Message\RefundRequest', $parameters);
+    }
+
+    public function close(array $parameters = array())
+    {
+        $this->setMethod('alipay.trade.close');
+
+        return $this->createRequest('\Omnipay\Alipay\Message\CloseRequest', $parameters);
+    }
+
+    public function refundQuery(array $parameters = array())
+    {
+        $this->setMethod('alipay.trade.fastpay.refund.query');
+
+        return $this->createRequest('\Omnipay\Alipay\Message\RefundQueryRequest', $parameters);
+    }
+
+    public function billDownload(array $parameters = array())
+    {
+        $this->setMethod('alipay.data.dataservice.bill.downloadurl.query');
+
+        return $this->createRequest('\Omnipay\Alipay\Message\BillDownloadRequest', $parameters);
     }
 }
